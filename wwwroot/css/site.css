@@ -1,0 +1,51 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.bg-mychoco {
+    background-color: chocolate;
+}
+
+#carouselHome .carousel-inner {
+    height: 450px;
+}
+
+#carouselHome li {
+    background-color: #D3D3D3;
+    padding: 10px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+#carouselHome li.active {
+    background-color: black;
+}
+
+#carouselHome .carousel-control-prev {
+    left: -10%;
+    background-color: black;
+}
+
+#carouselHome .carousel-control-next {
+    right: -10%;
+    background-color: black;
+}

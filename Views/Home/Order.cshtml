@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Resumo do Pedido";
+}
+<div class="py-2 text-center">
+    <img class="d-block rounded-1 mx-auto mb-4" src="https://www.starbucks.com.br/public/img/rewards/icon-app-2.png" alt="" width="86" height="70">
+    <h1 class="display-5 fw-bold">@ViewData["Title"]</h1>
+    <hr>
+</div>
+
+<main class="container">
+    <div class="row">
+
+        <div class="col-md-4 order-md-2 order-sm-1 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Nº do Pedido:</span>
+                <span class="badge badge-secondary badge-pill">3</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Seus Dados</h6>
+                        <p class="my-0 text-muted">Harry Porto</p>
+                        <p class="my-0 text-muted">(11) 1234-5678</p>
+                        <p class="my-0 text-muted">luara.da.silva@gmail.com</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Endereço de Entrega</h6>
+                        <p class="my-0 text-muted">
+                            Avenida Itamarati, 2303 (bloco 3, apto 21C)
+                            <br />
+                            Parque Erasmo Assunção - Santo André/SP
+                        </p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h5 class="my-0">Valor Total da Compra</h5>
+                    </div>
+                    <span class="text-muted fw-bold">R$12</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-8 order-md-1 order-sm-2">
+            <div class="container p-3 pt-5 justify-content-between shadow-lg">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h5>Item</h5>
+                    </div>
+                    <div class="col-md-2">
+                        <h5>Quantidade</h5>
+                    </div>
+                </div>
+
+                @*@foreach (var item in Model.Itens)
+                {*@
+                <div class="row">
+                    <div class="col-md-10">
+                        <div>Product.ProductName</div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="pull-right">QtdProduct</div>
+                    </div>
+                </div>
+                @*}*@
+
+            </div>
+        </div>
+
+    </div>
+</main>

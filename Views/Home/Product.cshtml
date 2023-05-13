@@ -1,0 +1,157 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Página do Produto";
+}
+
+<nav aria-label="breadcrumb mt-5">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active"><a class="nav-link text-dark fw-bold" asp-controller="Home" asp-action="Product" aria-current="page">@ViewData["Title"]</a></li>
+    </ol>
+</nav>
+
+<div class="container">
+    <div class="row p-5 mt-5 shadow-lg">
+        <div class="col-md-6"> 
+            <!-- productImg -->
+            <img src="~/img/imagem_400_300.svg" alt="Imagem do Produto" class="img-fluid" />
+        </div>
+        <div class="card shadow-sm col-md-4">
+            <div class="card-header">
+                <!-- productName -->
+                <h2></h2>
+            </div>
+            <div class="card-body">
+                <!-- productDescrip -->
+                <p class="fs-5 pt-4"></p>
+                <!-- productPrice -->
+                <h4 class="w-100 p-2 mt-5 text-end">Preço: R$ <span class="h2"></span></h4>
+                @{
+                    var httpContextAccessor = Context.Request.HttpContext.RequestServices.GetService(typeof(Microsoft.AspNetCore.Http.IHttpContextAccessor)) as Microsoft.AspNetCore.Http.IHttpContextAccessor;
+                    string urlProduct = httpContextAccessor.HttpContext.Request.Path;
+                    string idProduct = urlProduct.Substring(urlProduct.Length - 2);
+                }
+                <a id="btnComprar" class="btn btn-success btn-lg float-end" type="submit" asp-area="" asp-controller="Home" asp-action="Basket" asp-route-id="@idProduct">Comprar</a>
+
+            </div>
+        </div>
+        
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="../../assets/js/vendor/holder.min.js"></script>
+
+<script>
+    jQuery(document).ready(function () {
+    var urlProduct = jQuery(location).attr('href');
+    var regex = /(\d{2})$/;
+    var idProduct = regex.exec(urlProduct);
+
+    if (idProduct && idProduct.length > 1) {
+        console.log(idProduct);
+        console.log(urlProduct);
+        console.log(idProduct[1]);
+
+            //jQuery("#btnComprar").attr("asp-route-id", idProduct[1]);
+
+        if (idProduct[1].startsWith("01")) {
+            jQuery('img').attr('src', "/itens/large_001.jpg");   
+            jQuery('h2').text("Espresso Tradicional"); //h2
+            jQuery('p').text("Café puro e feito sob pressão, sem adição de leite ou qualquer outro ingrediente."); //p
+            jQuery('span').text("9,90");  //span
+        }
+        if (idProduct[1].startsWith("02")) {
+            jQuery('img').attr('src', "/itens/large_002.jpg");   
+            jQuery('h2').text("Espresso com Chantilly"); //h2
+            jQuery('p').text("Café puro e feito sob pressão com uma cobertura de chantilly."); //p
+            jQuery('span').text("9,90");  //span
+        }
+        if (idProduct[1].startsWith("03")) {
+            jQuery('img').attr('src', "/itens/large_003.jpg");   
+            jQuery('h2').text("Latte"); //h2
+            jQuery('p').text("Café espresso com leite vaporizado."); //p
+            jQuery('span').text("9,90");  //span
+        }
+        if (idProduct[1].startsWith("04")) {
+            jQuery('img').attr('src', "/itens/large_004.jpg");   
+            jQuery('h2').text("Cappuccino"); //h2
+            jQuery('p').text("Café espresso com leite vaporizado, resultando em um creme bem consistente."); //p
+            jQuery('span').text("12,90");  //span
+        }        
+        if (idProduct[1].startsWith("05")) {
+            jQuery('img').attr('src', "/itens/large_006.jpg");   
+            jQuery('h2').text("Mocaccino"); //h2
+            jQuery('p').text("Café espresso, leite vaporizado, espuma de leite e calda de chocolate."); //p
+            jQuery('span').text("9,90");  //span
+        }
+        if (idProduct[1].startsWith("06")) {
+            jQuery('img').attr('src', "/itens/large_005.jpg");   
+            jQuery('h2').text("Macchiato"); //h2
+            jQuery('p').text("Leite vaporizado, baunilha e café expresso."); //p
+            jQuery('span').text("12,90");  //span
+        }
+        if (idProduct[1].startsWith("07")) {
+            jQuery('img').attr('src', "/itens/large_007.jpg");   
+            jQuery('h2').text("Chá preto com pêssego (com ou sem gás)"); //h2
+            jQuery('span').text("7,90");  //span
+        }
+        if (idProduct[1].startsWith("08")) {
+            jQuery('img').attr('src', "/itens/large_008.jpg");   
+            jQuery('h2').text("Chá preto com frutas vermelhas"); //h2
+            jQuery('span').text("7,90");  //span
+        }
+        if (idProduct[1].startsWith("09")) {
+            jQuery('img').attr('src', "/itens/large_009.jpg");   
+            jQuery('h2').text("Chá verde com gengibre e limão"); //h2
+            jQuery('span').text("7,90");  //span
+        }
+        if (idProduct[1].startsWith("10")) {
+            jQuery('img').attr('src', "/itens/large_010.jpg");   
+            jQuery('h2').text("Café com Absolut"); //h2
+            jQuery('p').text("Um café mais cítrico e suave, limão e Absolut."); //p
+            jQuery('span').text("39,90");  //span
+        }
+        if (idProduct[1].startsWith("11")) {
+            jQuery('img').attr('src', "/itens/large_011.jpg");   
+            jQuery('h2').text("Espresso Gin Tônica"); //h2
+            jQuery('p').text("Café gelado, gin tônica, cranberry e gelo."); //p
+            jQuery('span').text("39,90");  //span
+        }
+        if (idProduct[1].startsWith("12")) {
+            jQuery('img').attr('src', "/itens/large_012.jpg");   
+            jQuery('h2').text("Irish Coffee"); //h2
+            jQuery('p').text("Café com uísque irlandês e uma camada de creme de chantilly."); //p
+            jQuery('span').text("39,90");  //span
+        }
+        if (idProduct[1].startsWith("13")) {
+            jQuery('img').attr('src', "/itens/large_013.jpg");   
+            jQuery('h2').text("Pão de queijo tradicional ou recheado"); //h2
+            jQuery('span').text("5,90");  //span
+        }
+        if (idProduct[1].startsWith("14")) {
+            jQuery('img').attr('src', "/itens/large_014.jpg");   
+            jQuery('h2').text("Croissant de peru com cream cheese"); //h2
+            jQuery('span').text("6,90");  //span
+        }
+        if (idProduct[1].startsWith("15")) {
+            jQuery('img').attr('src', "/itens/large_015.jpg");   
+            jQuery('h2').text("Croissant de presunto e queijo"); //h2
+            jQuery('span').text("6,90");  //span
+        }                        
+            //$.getJSON('/Data/itens.json', function (data) {
+            //    $.each(data, function (index, item) {
+            //        jQuery('img').attr('src', "/itens/large_001.jpg");   
+            //        jQuery('h2').text(item.ProductName); //h2
+            //        jQuery('p').text(item.ProductDescription); //p
+            //        jQuery('span').text(item.ProductPrice);  //span
+            //            console.log(jQuery('h2').text(item.ProductName))
+            //    });
+            //});
+    }
+});
+
+</script>
